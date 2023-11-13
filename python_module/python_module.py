@@ -1,7 +1,6 @@
 import time
 import os
 import csv
-from typing import List, Dict, Union
 
 
 def function_time(func):
@@ -45,14 +44,14 @@ def create_directory(directory_path: str):
         print(f"Директория {directory_path} уже существует.")
 
 
-def create_csv(file_path: str, header: List[str], data: List[List[Union[str, int, float]]]):
+def create_csv(file_path, header, data):
     """
     Создание файла CSV и запись данных.
 
     Args:
-        file_path (str): Путь к файлу CSV.
-        header (List[str]): Заголовки столбцов.
-        data (List[List[Union[str, int, float]]]): Двумерный список данных для записи.
+        file_path: Путь к файлу CSV.
+        header: Заголовки столбцов.
+        data: Двумерный список данных для записи.
     """
     with open(file_path, 'w', newline='') as csv_file:
         csv_writer = csv.writer(csv_file)
@@ -62,15 +61,15 @@ def create_csv(file_path: str, header: List[str], data: List[List[Union[str, int
     print(f"Файл CSV создан по пути {file_path}.")
 
 
-def read_csv(file_path: str) -> List[List[str]]:
+def read_csv(file_path: str):
     """
     Чтение данных из файла CSV.
 
     Args:
-        file_path (str): Путь к файлу CSV.
+        file_path: Путь к файлу CSV.
 
     Returns:
-        List[List[str]]: Список, содержащий строки из файла CSV.
+        List: Список, содержащий строки из файла CSV.
     """
     data_list = []
     with open(file_path, 'r', newline='') as csv_file:
