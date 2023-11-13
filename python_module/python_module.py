@@ -25,8 +25,7 @@ def function_time(func):
         start = time.time()
         result = func(*args, **kwargs)
         end = time.time()
-        print(f'Время выполнения функции {func.__name__}: {end - start:.4f} сек')
-        return result
+        return f'Время выполнения функции {func.__name__}: {end - start:.1f} сек'
 
     return wrapper
 
@@ -40,29 +39,30 @@ def create_directory(directory_path: str):
     """
     if not os.path.exists(directory_path):
         os.makedirs(directory_path)
-        print(f"Директория {directory_path} создана.")
+        # print(f"Директория {directory_path} создана.")
     else:
-        print(f"Директория {directory_path} уже существует.")
+        pass
+        # print(f"Директория {directory_path} уже существует.")
 
 
-def create_csv(file_path: str, header: List[str], data: List[List[Union[str, int, float]]]):
+def create_csv(file_path: str, header: List[str], data):
     """
     Создание файла CSV и запись данных.
 
     Args:
         file_path (str): Путь к файлу CSV.
         header (List[str]): Заголовки столбцов.
-        data (List[List[Union[str, int, float]]]): Двумерный список данных для записи.
+        data: Двумерный список данных для записи.
     """
     with open(file_path, 'w', newline='') as csv_file:
         csv_writer = csv.writer(csv_file)
         csv_writer.writerow(header)
         csv_writer.writerows(data)
 
-    print(f"Файл CSV создан по пути {file_path}.")
+    # print(f"Файл CSV создан по пути {file_path}.")
 
 
-def read_csv(file_path: str) -> List[List[str]]:
+def read_csv(file_path: str):
     """
     Чтение данных из файла CSV.
 
